@@ -6,6 +6,23 @@
 import os
 
 
+def camel_to_snake_case(name):
+    """Converts camel case strings to snake case"""
+
+    new_name = ''
+    for idx in range(len(name)):
+        if idx==0:
+            new_name += name[idx].lower()
+        else:
+            if name[idx-1].islower() and name[idx].isupper():
+                new_name += '_' + name[idx].lower()
+            else:
+                new_name += name[idx].lower()
+
+
+    return new_name
+
+
 def prepare_directory(filename):
     """Creates a directory if it doesn't exist yet."""
     directory = '/'.join(filename.split('/')[:-1])

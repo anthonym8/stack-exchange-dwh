@@ -3,3 +3,5 @@
 
 # external requirements
 pandas
+sqlalchemy
+psycopg2
