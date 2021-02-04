@@ -137,6 +137,44 @@ def load_dataset(dataset):
         load_data(dataset, table_name)
         
     print('\n\nFinished loading all tables for dataset: {}'.format(dataset))
+    
+    
+def create_sql_statements(dataset):
+    """Generates SQL statements.
+    
+    Parameters
+    ----------
+    dataset : str
+        The name of the StackExchange dataset. This will be used as schema name.
+        
+    Returns
+    -------
+    None
+    
+    """
+    
+    
+    import os
+    import json
+    
+    
+    # Parse schema info
+    root = os.getcwd()
+    schema_def = json.load(open('{}/data/metadata/postgres_schema.json'.format(root),'r'))
+    table_list = list(schema_def.keys())
+    
+    sql_list = ['BEGIN;','CREATE SCHEMA datascience;']
+    
+    # Load each table data
+    for table_name in table_list:
+        column_def = schema_def[table_name]
+        stmt = generate_sql_stmt(dataset, table_name, column_def)
+        
+        sql_list.append(stmt)
+        
+        
+    sql_stmt = '\n\n'.join(sql_list)
+        
 
 
 if __name__ == '__main__':
