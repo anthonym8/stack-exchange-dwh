@@ -9,8 +9,8 @@ By default, the dataset included in the docker image is from [Data Science Stack
 Usage
 ------------
 1. Make sure docker is installed in your computer
-1. Run this command to spin up the sample data warehouse:
-> `docker run -p 5439:5432 -d rmasi/misc:stack-exchange-dwh`
+1. Run this command to spin up the sample data warehouse: 
+<br>`docker run -p 5439:5432 -d rmasi/misc:stack-exchange-dwh`<br><br>
 1. Connect your SQL client or data visualization tool to the database:
     - username: `user`
     - password: `password`
@@ -22,21 +22,21 @@ Usage
 Building the docker image
 ------------
 1. Clone the repository:
-> `git clone https://github.com/r-mas/stack-exchange-dwh.git`
+<br>`git clone https://github.com/r-mas/stack-exchange-dwh.git`<br><br>
 1. Set the working directory:
-> `cd stack-exchange-dwh`
+<br>`cd stack-exchange-dwh`<br><br>
 1. Create a new conda environment:
-> `conda create -n python==3.7.5 stack-exchange-dwh`
+<br>`conda create -n python==3.7.5 stack-exchange-dwh`<br><br>
 1. Activate this conda environment:
-> `conda activate stack-exchange-dwh`
+<br>`conda activate stack-exchange-dwh`<br><br>
 1. Install the required python packages:
-> `pip install -r requirements.txt`
+<br>`pip install -r requirements.txt`<br><br>
 1. Run the ETL scripts:
-> `python -m src.etl.<TEMPORARY>`
+<br>`python -m src.etl.<TEMPORARY>`<br><br>
 1. Build the docker image:
-> `docker build -t stack-exchange-dwh .`
+<br>`docker build -t stack-exchange-dwh .`<br><br>
 1. You can now run this local image via:
-> `docker run -p 5439:5432 -d stack-exchange-dwh`
+<br>`docker run -p 5439:5432 -d stack-exchange-dwh`<br><br>
 
 Project Organization
 ------------
