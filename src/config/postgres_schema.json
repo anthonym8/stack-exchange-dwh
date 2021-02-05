@@ -1,0 +1,112 @@
+{
+    "badges": {
+        "id": "integer",
+        "user_id": "integer",
+        "name": "varchar(50)",
+        "date": "timestamp",
+        "class": "smallint",
+        "tag_based": "boolean"
+    },
+
+
+    "comments": {
+        "id": "integer",
+        "post_id": "integer",
+        "score": "integer",
+        "text": "varchar(600)",
+        "creation_date": "timestamp",
+        "user_display_name": "varchar(40)",
+        "user_id": "integer",
+        "content_license": "varchar(12)"
+    },
+
+
+    "post_history": {
+        "id": "integer",
+        "post_history_type_id": "smallint",
+        "post_id": "integer",
+        "revision_guid": "uuid",
+        "creation_date": "timestamp",
+        "user_id": "integer",
+        "user_display_name": "varchar(40)",
+        "comment": "varchar(400)",
+        "text": "varchar",
+        "content_license": "varchar(12)"
+    },
+
+
+    "post_links": {
+        "id": "integer",
+        "creation_date": "timestamp",
+        "post_id": "integer",
+        "related_post_id": "integer",
+        "link_type_id": "smallint"
+    },
+
+
+    "posts": {
+        "id": "integer",
+        "post_type_id": "smallint",
+        "accepted_answer_id": "integer",
+        "parent_id": "integer",
+        "creation_date": "timestamp",
+        "deletion_date":"timestamp",
+        "score": "integer",
+        "view_count": "integer",
+        "body": "varchar",
+        "owner_user_id": "integer",
+        "owner_display_name": "varchar(40)",
+        "last_editor_user_id": "integer",
+        "last_editor_display_name": "varchar(40)",
+        "last_edit_date": "timestamp",
+        "last_activity_date": "timestamp",
+        "title": "varchar(250)",
+        "tags": "varchar(250)",
+        "answer_count": "integer",
+        "comment_count": "integer",
+        "favorite_count": "integer",
+        "closed_date": "timestamp",
+        "community_owned_date": "timestamp",
+        "content_license": "varchar(12)"
+    },
+
+
+    "tags": {
+        "id": "integer",
+        "tag_name": "varchar(35)",
+        "count": "integer",
+        "excerpt_post_id": "integer",
+        "wiki_post_id": "integer",
+        "is_moderator_only":"boolean",
+        "is_required":"boolean"
+    },
+
+
+    "users": {
+        "id": "integer",
+        "reputation": "integer",
+        "creation_date": "timestamp",
+        "display_name": "varchar(40)",
+        "last_access_date": "timestamp",
+        "website_url": "varchar(200)",
+        "location": "varchar(100)",
+        "about_me": "varchar",
+        "views": "integer",
+        "up_votes": "integer",
+        "down_votes": "integer",
+        "profile_image_url": "varchar(200)",
+        "email_hash":"varchar(32)",
+        "account_id": "integer"
+        
+    },
+
+
+    "votes": {
+        "id": "integer",
+        "post_id": "integer",
+        "vote_type_id": "smallint",
+        "user_id": "integer",
+        "creation_date": "timestamp",
+        "bounty_amount":"integer"
+    }
+}
