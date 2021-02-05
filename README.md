@@ -21,22 +21,21 @@ Usage
 
 Building the docker image
 ------------
-1. Clone the repository:
+1. Clone the repository.
 <br>`git clone https://github.com/r-mas/stack-exchange-dwh.git`<br><br>
-1. Set the working directory:
+1. Set the working directory.
 <br>`cd stack-exchange-dwh`<br><br>
-1. Create a new conda environment:
+1. Create a new conda environment.
 <br>`conda create -n python==3.7.5 stack-exchange-dwh`<br><br>
-1. Activate this conda environment:
+1. Activate this conda environment.
 <br>`conda activate stack-exchange-dwh`<br><br>
-1. Install the required python packages:
+1. Install the required python packages.
 <br>`pip install -r requirements.txt`<br><br>
-1. Run the ETL scripts:
-<br>`python -m src.etl.<TEMPORARY>`<br><br>
-1. Build the docker image:
-<br>`docker build -t stack-exchange-dwh .`<br><br>
+1. Run the docker build script and input your chosen Stack Exchange website, e.g. datascience, academia, android, etc. (refer to this [list](https://archive.org/download/stackexchange)).
+<br>`bash src/scripts/build_docker_image.sh`<br><br>
 1. You can now run this local image via:
 <br>`docker run -p 5439:5432 -d stack-exchange-dwh`<br><br>
+
 
 Project Organization
 ------------
@@ -44,18 +43,22 @@ Project Organization
     ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
+    │   ├── metadata       <- Metadata for the extracted dataset (auto-generated)
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
+    │
+    ├── docker             <- Artifacts for building the docker image will be auto-generated here.
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     │
     └── src                <- Source code for use in this project.
         ├── __init__.py    <- Makes src a Python module
-        │
-        └── data           <- Scripts to download or generate data
+        │── data           <- Scripts and functions to download or generate data
+        │── schema         <- Postgres column data types for Stack Exchange data
+        │── scripts        <- Shell scripts
+        └── utils          <- Helper functions
 
 --------
 

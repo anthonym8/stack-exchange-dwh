@@ -53,6 +53,7 @@ def transform_dataset(dataset):
     None
     
     """
+    
 
     import os
     import json
@@ -82,5 +83,11 @@ def transform_dataset(dataset):
 
 if __name__ == '__main__':
     
-    dataset = input()
-    transform_dataset(dataset)
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(prog='transform')
+    parser.add_argument('--dataset', action='store', required=True, help='The dataset to transform')
+    args = parser.parse_args()
+    
+    transform_dataset(args.dataset)

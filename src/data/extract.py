@@ -33,5 +33,11 @@ def extract(dataset):
 
 if __name__ == '__main__':
     
-    dataset = input()
-    extract(dataset)
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(prog='extract')
+    parser.add_argument('--dataset', action='store', required=True, help='The dataset to transform')
+    args = parser.parse_args()
+    
+    extract(args.dataset)
